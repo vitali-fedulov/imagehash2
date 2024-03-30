@@ -1,6 +1,6 @@
 # Fast similar image search with Go (LATEST VERSION)
 
-**Resized and near-duplicate image search for very large image collections** (thousands, millions, and much more). The package generates real hashes to be used in hash-tables, and consumes very little memory.
+**Resized and near-duplicate image search for very large image collections** (thousands, millions, and more). The package generates 'real' hashes to be used in hash-tables, and consumes very little memory.
 
 [Demo](https://vitali-fedulov.github.io/similar.pictures/) (a usage scenario for image similarity search).
 
@@ -67,7 +67,7 @@ func main() {
 
 	// Hash set to be used as a query to the hash table. Each hash from
 	// the hashSet has to be checked against the hash table.
-	hashSet :=	imagehash2.HashSet9(icon2, epsilon, numBuckets)
+	hashSet := imagehash2.HashSet9(icon2, epsilon, numBuckets)
 
 	foundSimilarImage := false
 
