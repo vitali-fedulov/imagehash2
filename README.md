@@ -11,7 +11,7 @@
 Major (semantic) versions have their own repositories and are mutually incompatible:
 | Major version | Repository | Comment |
 | ----------- | ---------- | ----------|
-| 2 | imagehash2 (this) | recommended, with major precision improvement |
+| 2 | imagehash2 (this) | recommended, with improved precision |
 | 1 | [imagehash](https://github.com/vitali-fedulov/imagehash) | as fast, but has a minor generalization defect |
 
 ## Parameters
