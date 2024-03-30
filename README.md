@@ -1,4 +1,4 @@
-# Fast similar image search with Go (LATEST VERSION)
+# Fast similar image search with Go (LATEST version)
 
 **Resized and near-duplicate image search for very large image collections** (thousands, millions, and more). The package generates 'real' hashes to be used in hash-tables, and consumes very little memory.
 
