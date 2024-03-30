@@ -63,20 +63,11 @@ func main() {
 	// image ids. Table structure: map[centralHash][]imageId.
 	// imageId is simply an image number in a directory tree.
 	// And centralHash type is uint64.
-	centralHash := imagehash2.CentralHash9(
-											icon1,
-											epsilon,
-											numBuckets,
-										)
+	centralHash := imagehash2.CentralHash9(icon1, epsilon, numBuckets)
 
 	// Hash set to be used as a query to the hash table. Each hash from
 	// the hashSet has to be checked against the hash table.
-	hashSet :=	imagehash2.HashSet9(
-											icon2,
-											epsilon,
-											numBuckets,
-										)
-
+	hashSet :=	imagehash2.HashSet9(icon2, epsilon, numBuckets)
 
 	foundSimilarImage := false
 
