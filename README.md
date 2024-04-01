@@ -12,7 +12,7 @@ Major (semantic) versions have their own repositories and are mutually incompati
 | Major version | Repository | Comment |
 | ----------- | ---------- | ----------|
 | 2 | imagehash2 (this) | recommended, with improved precision |
-| 1 | [imagehash](https://github.com/vitali-fedulov/imagehash) | as fast, but has a minor generalization defect |
+| 1 | [imagehash](https://github.com/vitali-fedulov/imagehash) | as fast, but has a generalization defect |
 
 ## Parameters
 
@@ -24,9 +24,9 @@ The most important parameter is `numBuckets`. It defines granularity of hyper-sp
 
 The second parameter is `epsilon`, which can be safely set to 0.25 for most cases.
 
-## Example of comparing 2 photos using imagehash
+## Example of comparison for 2 photos
 
-The demo shows only the hash-based similarity comparison (without making actual hash table). But the hash table is implied in full implementation.
+The demo shows only the hash-based similarity comparison (without making actual hash table). But the hash table, typically a Golang map, is implied in full implementation.
 
 ```go
 package main
