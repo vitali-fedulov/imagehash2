@@ -1,6 +1,6 @@
 # Fast similar image search with Go (LATEST version)
 
-**Resized and near-duplicate image search for very large image collections** (thousands, millions, and more). The package generates 'real' hashes to be used in hash-tables, and consumes very little memory.
+**Resized and near-duplicate image search for very large image collections** (thousands, millions, and more). The package generates 'real' hashes to be used in hash-tables, and consumes very little memory. It is recommended to cross-check the similarity result with more precise [images4](https://github.com/vitali-fedulov/images4) package.
 
 [Demo](https://vitali-fedulov.github.io/similar.pictures/) (a usage scenario for image similarity search).
 
@@ -81,28 +81,17 @@ func main() {
 		}
 	}
 
-	// Image comparison result.
+	// Comparison result.
 	if foundSimilarImage {
-
-		// If numBuckets is high.
-		fmt.Println("Images are similar.")
-
-		// If numBuckets is low.
-		// fmt.Println("Images are **approximately** similar.")
-
+		fmt.Println("Images are *approximately* similar.")
 	} else {
-
-		// Images are significantly different.
 		fmt.Println("Images are distinct.")
-
 	}
 
-	// If numBuckets is low, you will need to use
-	// func Similar from package images4 for final
-	// confirmation of image similarity. That is:
-
-	// if images4.Similar(icon1, icon2) == true {
-	//    fmt.Println("Images are definitely similar")
-	// }
+	// It is recommended to cross-check the result with
+        // the higher-precision func Similar from package images4.
+	if images4.Similar(icon1, icon2) == true {
+		fmt.Println("Images are similar")
+	}
 }
 ```
