@@ -16,13 +16,9 @@ Major (semantic) versions have their own repositories and are mutually incompati
 
 ## Parameters
 
-The most important parameter is `numBuckets`. It defines granularity of hyper-space quantization. The higher the value, the more restrictive the comparison is. And, when used together with images4 package, the faster the search becomes:
+The most important parameter is `numBuckets`. It defines granularity of hyper-space quantization. The higher the value, the more restrictive the comparison is. And, when used together with images4 package, higher `numBuckets` considerably accelerates the search process, because fewer image ids fall into a single quantization cell.
 
-* When `numBuckets` parameter is high (>100), the package finds **near-duplicate images**. For example: resized images, images with small color adjustments, images with minor detail variations.
-
-* When `numBuckets` is low (single digit values), the package is a **rough pre-filtering first step**. Then the **second precise step** with [images4](https://github.com/vitali-fedulov/images4) is required, applied on the image set from the pre-filtering step. This sequence is necessary because direct comparison with images4 can be slow for large image collections.
-
-The second parameter is `epsilon`, which can be safely set to 0.25 for most cases.
+The second parameter is `epsilon`, which can be safely set to 0.25.
 
 ## Example of comparison for 2 photos
 
