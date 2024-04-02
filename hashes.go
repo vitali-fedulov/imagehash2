@@ -9,16 +9,17 @@ import (
 	"github.com/vitali-fedulov/images4"
 )
 
-// CentralHash9 generates a central hash for a given icon
-// by taking sums of nine 3x3 icon pixel blocks in the central 9x9 area.
+// CentralHash9 generates a central hash for an icon.
 // This hash can then be used for a record or a query.
-// When used for a record, you will need a hash set made
-// with func HashSet for a query. And vice versa.
+// When used for a record, you will need a hash set made with func HashSet
+// for a query. And vice versa. They are interchangeable for optimization.
+// The hash is generated for 9 average luma values of nine 3x3 pixel blocks
+// in the central 9x9 area of the icon.
 func CentralHash9(icon images4.IconT, epsilon float64, numBuckets int) uint64 {
 
 	vector := lumaVector9(icon)
 
-	// Central cube generation with package hyper.
+	// Central hypercube made with package hyper.
 	cube := hyper.CentralCube(vector,
 		hyper.Params{
 			Min:        0,
@@ -34,16 +35,15 @@ func CentralHash9(icon images4.IconT, epsilon float64, numBuckets int) uint64 {
 	return cube.DecimalHash()
 }
 
-// HashSet9 generates a hash set for a given icon by taking
-// sums of nine 3x3 icon pixel blocks in the central 9x9 area.
-// This hash set can then be used for records or a query.
+// HashSet9 generates a hash set for an icon.
+// This hash set can then be used for a record or a query.
 // When used for a query, you will need a hash made with
 // func CentralHash as a record. And vice versa.
 func HashSet9(icon images4.IconT, epsilon float64, numBuckets int) []uint64 {
 
 	vector := lumaVector9(icon)
 
-	// Cube set generation with package hyper.
+	// Hypercube set made with package hyper.
 	cubeSet := hyper.CubeSet(vector,
 		hyper.Params{
 			Min:        0,
