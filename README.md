@@ -79,15 +79,18 @@ func main() {
 
 	// Comparison result.
 	if foundSimilarImage {
+
 		fmt.Println("Images are *approximately* similar.")
+
+		// It is recommended to cross-check the result with
+	        // the higher-precision func Similar from package images4.
+		if images4.Similar(icon1, icon2) == true {
+			fmt.Println("Images are similar")
+		}
+
 	} else {
 		fmt.Println("Images are distinct.")
 	}
 
-	// It is recommended to cross-check the result with
-        // the higher-precision func Similar from package images4.
-	if images4.Similar(icon1, icon2) == true {
-		fmt.Println("Images are similar")
-	}
 }
 ```
