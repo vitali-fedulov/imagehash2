@@ -1,6 +1,6 @@
 # Fast similar image search with Go (LATEST version)
 
-**Resized and near-duplicate image search for very large image collections** (thousands, millions, and more). The package generates 'real' hashes to be used in hash-tables, and consumes very little memory. It is recommended to cross-check the similarity result with more precise [images4](https://github.com/vitali-fedulov/images4) package.
+Resized and near-duplicate image search **for large image collections** (thousands, millions, and more). The package generates 'real' hashes to be used in hash-tables, and consumes very little memory. It is recommended to cross-check the similarity result with more precise (but slow) [images4](https://github.com/vitali-fedulov/images4) package.
 
 [Demo](https://vitali-fedulov.github.io/similar.pictures/) (a usage scenario for image similarity search).
 
@@ -12,7 +12,7 @@ Major (semantic) versions have their own repositories and are mutually incompati
 | Major version | Repository | Comment |
 | ----------- | ---------- | ----------|
 | 2 | imagehash2 (this) | recommended, with improved precision |
-| 1 | [imagehash](https://github.com/vitali-fedulov/imagehash) | as fast, but has a generalization defect |
+| 1 | [imagehash](https://github.com/vitali-fedulov/imagehash) | as fast, but has a minor generalization issue |
 
 ## Parameters
 
