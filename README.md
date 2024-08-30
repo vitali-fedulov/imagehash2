@@ -55,26 +55,31 @@ func main() {
 
 	// Hash table values.
 
-	// Value to save to the hash table as a key with corresponding
+	// Value to save to the hash table as a KEY with corresponding
 	// image ids. Table structure: map[centralHash][]imageId.
 	// imageId is simply an image number in a directory tree.
-	// And centralHash type is uint64.
+	// centralHash is uint64.
 	centralHash := imagehash2.CentralHash9(icon1, epsilon, numBuckets)
 
-	// Hash set to be used as a query to the hash table. Each hash from
-	// the hashSet has to be checked against the hash table.
+	// Hash set to be used as a QUERY to the hash table.
+	// Each hash from the hashSet must be checked against the hash table.
+	// The length of hashSet is different for each image.
+	// The most frequent length is 1.
 	hashSet := imagehash2.HashSet9(icon2, epsilon, numBuckets)
+
+	// As if we are searching in the table.
 
 	foundSimilarImage := false
 
-	// Checking hash matches. In full implementation to search in many
-	// images, this will be done on the following hash table of type
-	// map[centralHash][]imageId. Where centralHash type is uint64.
-	for _, hash := range hashSet {
-		if centralHash == hash {
+	// Checking hash matches. In full implementation this will be done
+	// on the map mentioned above.
+	for _, hash := range hashSet { // Query. Check full hashSet.
+
+		if centralHash == hash { // Sub-query hash found in the table.
 			foundSimilarImage = true
 			break
 		}
+
 	}
 
 	// Comparison result.
